@@ -27,20 +27,28 @@ class UserControllerIntegrationTest {
     @Autowired
     private ObjectMapper objectMapper;
 
+
+    // Verifica se e possivel criar um usuario pela API
     @Test
     void shouldCreateUser() throws Exception {
 
         User user = new User("Leo", "leo@email.com");
 
+        // Simula uma requisicao HTTP POST pro endpoint /users
         mockMvc.perform(post("/users")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(user)))
+
+                // Verifica se a resposta HTTP retornou o STATUS 200 OK
                 .andExpect(status().isOk());
     }
 
+
+    // Verifica se a API consegue retornar usuarios
     @Test
     void shouldReturnUsers() throws Exception {
 
+        // Verifica se a resposta da API foi bem sucedida
         mockMvc.perform(get("/users"))
                 .andExpect(status().isOk());
     }
