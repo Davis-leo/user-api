@@ -41,7 +41,7 @@ class UserControllerIntegrationTest {
     @Test
     void shouldReturnUsers() throws Exception {
 
-        mockMvc.perform(get("/users"))
+        mockMvc.perform(get("/user"))
                 .andExpect(status().isOk());
     }
 }
