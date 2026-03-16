@@ -68,7 +68,7 @@ class UserServiceTest {
 
         User savedUser = service.createUser(user);
 
-        assertEquals("maria2@email.com", savedUser.getEmail());
+        assertEquals("maria@email.com", savedUser.getEmail());
     }
 
     @Test
